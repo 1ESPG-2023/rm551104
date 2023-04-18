@@ -108,7 +108,7 @@ function soma(p1,p2,p3){
 const mudaCor=()=>{
 
     //FUNÇÃO SET-TIME-OUT
-    setTimeout(alert("EXECUTOU"),5000);
+    setTimeout(alert("EXECUTOUjj"),5000);
 }
 
 mudaCor();
