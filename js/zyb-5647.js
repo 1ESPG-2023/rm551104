@@ -91,3 +91,24 @@
 // })
 // //console.log(liElementArray);
 // //mostra o array
+
+function soma(p1,p2,p3){
+    nr1=p1;
+    nr2=p2;
+
+    return (parseInt(nr1) + parseInt(nr2) + parseInt(p3))
+    //quem tá chamdno a função(mo caso o botão) recebe o retorno
+
+    // console.log(`Resultado: ${parseInt(nr1) + parseInt(nr2) + parseInt(parametro)}`)
+    // console.log(`Este é o parametro que foi passada para a função:${parametro}`);
+}
+// soma(); //chamando a função
+
+//ARROW FUNCTION
+const mudaCor=()=>{
+
+    //FUNÇÃO SET-TIME-OUT
+    setTimeout(alert("EXECUTOU"),5000);
+}
+
+mudaCor();
