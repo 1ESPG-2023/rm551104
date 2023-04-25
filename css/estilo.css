@@ -12,8 +12,8 @@
     display: flex;
     justify-content: space-between;
     width: 100vw;
-    height: 60vh;
-    background-color: blueviolet;
+    height: 250vh;
+    /* background-color: blueviolet; */
 }
 
 .container .central{
@@ -23,10 +23,17 @@
 
 .container .l-e{
     flex-grow: 1;
-    background-color: brown;
+    /* background-color: brown; */
 }
 
 .container .l-d{
     flex-grow: 1;
-    background-color: coral;
+    /* background-color: coral; */
+}
+
+.foto{
+    flex-grow: 1;
+    width: 100%;
+    height: 100%;
+
 }
