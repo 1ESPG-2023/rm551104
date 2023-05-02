@@ -158,5 +158,56 @@ function alteraBanner(){
 
 
 }
-alteraBanner()
+//alteraBanner();
+
+const botao = document.querySelector(".central button");
+
+botao.addEventListener("click",()=>{
+    const imgLampada = document.querySelector(".central img");
+   
+    if(botao.textContent=="LIGAR"){
+        imgLampada.src = "./img/pic_bulbon.gif"
+        botao.textContent = "DESLIGAR";
+    }else{
+        imgLampada.src = "./img/pic_bulboff.gif"
+        botao.textContent = "LIGAR";  
+    } 
+}) //botao.addEventListener("click",ligaDesliga) primeiro o que vai acontecer (evento) e o segundo a função
+
+// function ligaDesliga(){
+
+    // const imgLampada = document.querySelector(".central img");
+   
+
+    // if(botao.textContent=="LIGAR"){
+    //     imgLampada.src = "./img/pic_bulbon.gif"
+    //     botao.textContent = "DESLIGAR";
+    // }else{
+    //     imgLampada.src = "./img/pic_bulboff.gif"
+    //     botao.textContent = "LIGAR";  
+    // } 
+//}
+
+const inputUser = document.querySelector("input[name='nmUser']");//no colchete vc coloca o atributo que diferencia
+const labelUser = document.querySelector("label[for]");
+
+inputUser.addEventListener("focus",()=>{
+    
+    inputUser.setAttribute("style","outline-color:#ff0000"); 
+});
+
+inputUser.addEventListener("keyup",()=>{
+    if(inputUser.value.length < 8){
+    inputUser.setAttribute("style","outline-color:#ff0000");
+    labelUser.setAttribute("style","color:#ff0000");
+     
+    //console.log(inputUser.value.length);
+    }else{
+        inputUser.setAttribute("style","outline-color:#dddddd");
+        labelUser.setAttribute("style","color:#00ff00");
+
+    }
+})
+
+
 
