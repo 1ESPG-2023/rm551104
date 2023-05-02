@@ -142,11 +142,21 @@
 
 function alteraBanner(){
 
-    let nr = Math.round(Math.random()*3)
-    let caminho= `./img/banner-lateral-${nr}.png`;
-
+    let nr = Math.ceil(Math.random()*3);
+    
     const img1 = document.querySelector(".l-e > img")
+    const img2 = document.querySelector(".l-d > img")
+
+    let caminho= `./img/banner-lateral-${nr}.png`;
     img1.src = caminho;
+
+    nr = Math.ceil(Math.random()*3);
+    caminho= `./img/banner-lateral-${nr}.png`;
+    img2.src = caminho;
+
+    setTimeout(alteraBanner, 1000);
+
 
 }
 alteraBanner()
+
