@@ -10,22 +10,50 @@
 </head>
 <body>
    <header class="cabecalho">
-    <span>CABEÇALHO</span>
-    
+    <img src="./img/banner-1440x300-1.jpg">
+    <!-- <span>CABEÇALHO</span> -->
    </header>
+   
    <div class="container">
     <aside class="l-e">
-        <img class="foto" src="./img/banner-lateral-1.png">
-        <!-- <span>B-E</span> -->
+        <img  src="./img/banner-lateral-1.png">
     </aside>
+
     <section class="central">
-        <img class="foto" src="./img/banner-lateral-2.png">
-        <!-- <span>CONTEÚDO</span> -->
+
+        <div>
+            <img src="./img/pic_bulboff.gif" alt="lampada desligada">
+        </div>
+        
+        <button>LIGAR</button>
+
     </section>
+
     <aside class="l-d">
-        <img class="foto" src="./img/banner-lateral-3.png">
+        <img src="./img/banner-lateral-3.png">
         <!-- <span>B-D</span> -->
     </aside>  
+   </div>
+
+   <div class="info">
+    <form action="index.html" method="get" onsubmit="return false">
+    <fieldset>
+        <legend>LOGIN</legend>
+        <div>
+            <label for="idUser">Usuário - (Mínimo 8 letras)</label>
+            <input type="text" name="nmUser" id="idUser" placeholder="Usuário">
+        </div>
+            
+        <div>
+            <label for="idPass">Senha</label>
+            <input type="password" name="txtPass" id="idPass" placeholder="Senha">
+        </div>
+
+        <div>
+            <button type="button">LOGIN</button>
+        </div>
+    </fieldset>
+    </form>
    </div>
 
    <footer class="rodape">
