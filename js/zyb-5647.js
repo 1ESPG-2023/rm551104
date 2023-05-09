@@ -198,8 +198,8 @@ inputUser.addEventListener("focus",()=>{
 
 inputUser.addEventListener("keyup",()=>{
     if(inputUser.value.length < 8){
-    inputUser.setAttribute("style","outline-color:#ff0000");
-    labelUser.setAttribute("style","color:#ff0000");
+        inputUser.setAttribute("style","outline-color:#ff0000");
+        labelUser.setAttribute("style","color:#ff0000");
      
     //console.log(inputUser.value.length);
     }else{
@@ -207,7 +207,7 @@ inputUser.addEventListener("keyup",()=>{
         labelUser.setAttribute("style","color:#00ff00");
 
     }
-})
+});
 
 
 
