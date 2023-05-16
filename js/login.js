@@ -41,16 +41,46 @@ addEventListener("click", (evento)=>{
         let lista = JSON.parse(localStorage.getItem("listaUser"));
         // let listaDeUsuarios = JSON.parse(lista);
 
-        lista.forEach((usuario)=>{
-        //VALIDAÇÃO
-        //if(usuario == "pf0670" && senha =="12345"){
-        if(inputUserValue == usuario.nomeUsuario &&  inputPassValue == usuario.senhaUsuario){
-            console.log("VALIDADO!");
-            h1Titulo.innerHtml = "Bem vindo: " + usuario.nomeUsuario;
-        }else{
-            console.log("NÃO VALIDOU!");
-            h1Titulo.innerHtml = "";
-        }
-        })
+        let userValidado ={}
+
+        
+        try{
+            lista.forEach((usuario)=> {
+                //VALIDAÇÃO
+                if(inputUserValue == usuario.nomeUsuario && inputPassValue == usuario.senhaUsuario){
+                    userValidado = usuario;
+                    throw "VALIDADO";
+                }
+            });
+
+            throw "NÃO VALIDADO";
+
+        }catch(msg){
+            if(msg == "VALIDADO"){
+                h1Titulo.innerHTML = "<span><strong>Login validado com sucesso!</strong></span>"
+                h1Titulo.setAttribute("style","color:#00ff00");
+
+                //adicionando uma propriedade ao nosso objeto userioValidado
+                userValidado["token"] = 
+
+                //setando um novo objeto no local storage
+                localStorage.setItem("userValidado", JSON.stringify (userValidado));
+                //direcionando o usuário para a página de sucesso
+                window.location.href = "../sucesso.html.";
+            }else{
+                h1Titulo.innerHTML = "<span><strong>Login ou senha invalidos!</strong></span>"
+                h1Titulo.setAttribute("style","color:#ff0000")
+                window.location.href = "../erro.html";
+            }
+        }       
     }
 });
+try{
+    const userBemVindo = document.querySelector("#userWelcome");
+    userBemVindo.innerHTML = JSON.parse (localStorage.getItem("userValidado"));
+    userBemVindo.innerHTML = usuario.nomeUsuario;
+}catch(erro){
+    if(userBemVindo != null){
+        userBemVindo.innerHTML = JSON.parse (localStorage.getItem("userValidado")).nomeUsuario;
+    }
+}
