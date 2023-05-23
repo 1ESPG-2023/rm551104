@@ -66,11 +66,11 @@ addEventListener("click", (evento)=>{
                 //setando um novo objeto no local storage
                 localStorage.setItem("userValidado", JSON.stringify (userValidado));
                 //direcionando o usuário para a página de sucesso
-                window.location.href = "../sucesso.html.";
+                window.location.href = "./sucesso.html.";
             }else{
                 h1Titulo.innerHTML = "<span><strong>Login ou senha invalidos!</strong></span>"
                 h1Titulo.setAttribute("style","color:#ff0000")
-                window.location.href = "../erro.html";
+                window.location.href = "./erro.html";
             }
         }       
     }
