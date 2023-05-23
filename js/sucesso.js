@@ -9,8 +9,8 @@
         
         botaoLogout.addEventListener("click", ()=>{
             localStorage.removeItem("user-token");
-            window.location.href = "../login.html";
+            window.location.href = "./login.html";
         });
     }else{
-        window.location.href = "../login.html";
+        window.location.href = "./login.html";
     }
