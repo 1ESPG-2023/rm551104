@@ -41,7 +41,7 @@ addEventListener("click", (evento)=>{
         let lista = JSON.parse(localStorage.getItem("listaUser"));
         // let listaDeUsuarios = JSON.parse(lista);
 
-        let userValidado ={}
+        let userValidado ={};
 
         
         try{
@@ -52,35 +52,59 @@ addEventListener("click", (evento)=>{
                     throw "VALIDADO";
                 }
             });
-
+            
+            //Caso não ocorra validação o throw é lançado para o catch com a string referente
             throw "NÃO VALIDADO";
 
         }catch(msg){
             if(msg == "VALIDADO"){
-                h1Titulo.innerHTML = "<span><strong>Login validado com sucesso!</strong></span>"
-                h1Titulo.setAttribute("style","color:#00ff00");
 
-                //adicionando uma propriedade ao nosso objeto userioValidado
-                userValidado["token"] = 
+                //Criando o objeto userValidado no LocalStorage
+                localStorage.setItem("user-validado",  JSON.stringify(userValidado));
+                
+                h1Titulo.innerHTML = "<span><strong>Login validado com sucesso!</strong></span>";
+                h1Titulo.setAttribute("style","color:#00ff00;");
 
-                //setando um novo objeto no local storage
-                localStorage.setItem("userValidado", JSON.stringify (userValidado));
-                //direcionando o usuário para a página de sucesso
-                window.location.href = "./sucesso.html.";
+                //Adicionando uma propriedade ao nosso objeto userValidado
+                let token = Math.random().toString(16).substring(2)+Math.random().toString(16).substring(2);
+
+                //Atualizando o token no LocalStorage
+                localStorage.setItem("user-token",  JSON.stringify(token));
+
+                //Direcionando o usuário para a página de sucesso!
+                window.location.href = "./sucesso.html";
+
             }else{
-                h1Titulo.innerHTML = "<span><strong>Login ou senha invalidos!</strong></span>"
-                h1Titulo.setAttribute("style","color:#ff0000")
+                h1Titulo.innerHTML = "<span><strong>Login ou senha inválidos!</strong></span>";
+                h1Titulo.setAttribute("style","color:#ff0000;");
                 window.location.href = "./erro.html";
             }
         }       
     }
 });
-try{
-    const userBemVindo = document.querySelector("#userWelcome");
-    userBemVindo.innerHTML = JSON.parse (localStorage.getItem("userValidado"));
-    userBemVindo.innerHTML = usuario.nomeUsuario;
-}catch(erro){
-    if(userBemVindo != null){
-        userBemVindo.innerHTML = JSON.parse (localStorage.getItem("userValidado")).nomeUsuario;
-    }
-}
+//try{
+    
+    //     if(JSON.parse(localStorage.getItem("user-token")) != null){
+    //         const userBemVindo = document.querySelector("#userWelcome");
+    //         let usuario = JSON.parse(localStorage.getItem("user-validado"));
+            
+    //         userBemVindo.innerHTML = usuario.nomeUsuario;
+    //         const botaoLogout = document.querySelector("#btnLogout");
+            
+    //         botaoLogout.addEventListener("click", ()=>{
+    //             localStorage.removeItem("user-validado");
+    //             window.location.href = "../login.html";
+    //         });
+    //     }else{
+    //         throw null;
+    //     }
+    
+    // }catch(erro){
+    
+    //     if(userBemVindo != null){
+    //         userBemVindo.innerHTML = JSON.parse(localStorage.getItem("user-validado")).nomeUsuario;
+    //     }else{
+    //         window.location.href = "../login.html";
+    //     }
+    // }
+    
